@@ -11,4 +11,8 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
+    implementation("org.apache.kafka:kafka-clients:2.5.0")
+    // https://mvnrepository.com/artifact/io.github.microutils/kotlin-logging
+    implementation("io.github.microutils:kotlin-logging:2.0.11")
 }
