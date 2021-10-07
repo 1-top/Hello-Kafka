@@ -12,7 +12,9 @@ repositories {
 }
 
 dependencies {
-    testImplementation(kotlin("test"))
+    testImplementation(kotlin("test-junit5"))
+    // https://mvnrepository.com/artifact/org.apache.kafka/kafka-clients
+    implementation("org.apache.kafka:kafka-clients:2.5.0")
 }
 
 tasks.test {
