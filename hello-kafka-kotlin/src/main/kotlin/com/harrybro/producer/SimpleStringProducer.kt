@@ -13,9 +13,9 @@ private const val TOPIC_NAME = "test"
 private const val BOOTSTRAP_SERVER = "my-kafka:9092"
 
 fun main() {
-//    SimpleStringProducer(getKafkaStringSerializerConfig(BOOTSTRAP_SERVER))
-//        .use { it.send(TOPIC_NAME, "hello kafka") }
-//        .also { println("Message transmission was successful.") }
+    SimpleStringProducer(getKafkaStringSerializerConfig(BOOTSTRAP_SERVER))
+        .use { it.send(TOPIC_NAME, "hello kafka") }
+        .also { println("Message transmission was successful.") }
 }
 
 class SimpleStringProducer(private val config: Properties) : Closeable {
