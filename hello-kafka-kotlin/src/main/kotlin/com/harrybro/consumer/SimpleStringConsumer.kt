@@ -22,4 +22,5 @@ open class SimpleStringConsumer(private val config: Properties) {
     protected val consumer = KafkaConsumer<String, String>(this.config)
     fun subscribe(topicName: Collection<String>) = this.consumer.subscribe(topicName)
     fun poll(): ConsumerRecords<String, String> = this.consumer.poll(Duration.ZERO)
+    fun wakeup() = this.consumer.wakeup()
 }

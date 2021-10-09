@@ -7,7 +7,7 @@ private const val BOOTSTRAP_SERVER = "my-kafka:9092"
 private const val GROUP_ID = "test-group"
 
 fun main() {
-    SimpleStringSyncCommitConsumer(getKafkaOffsetCommitConsumerConfig(BOOTSTRAP_SERVER, GROUP_ID)).also {
+    SimpleStringSyncCommitConsumer(getKafkaNonAutoCommitConsumerConfig(BOOTSTRAP_SERVER, GROUP_ID)).also {
         it.subscribe(mutableListOf(TOPIC_NAME))
         while (true) {
             for (consumerRecord in it.poll()) println(consumerRecord)

@@ -11,5 +11,5 @@ fun getKafkaConsumerConfig(bootstrapServer: String, groupId: String) = Propertie
     put(VALUE_DESERIALIZER_CLASS_CONFIG, StringDeserializer::class.java.name)
 }
 
-fun getKafkaOffsetCommitConsumerConfig(bootstrapServer: String, groupId: String) =
+fun getKafkaNonAutoCommitConsumerConfig(bootstrapServer: String, groupId: String) =
     getKafkaConsumerConfig(bootstrapServer, groupId).apply { put(ENABLE_AUTO_COMMIT_CONFIG, false) }
