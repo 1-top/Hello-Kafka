@@ -13,9 +13,9 @@ private const val ORDER_STREAM = "order"
 private const val ORDER_JOIN_STREAM = "order_join"
 
 fun main() {
-    val stringBuilder = StreamsBuilder().also {
-        it.stream<String, String>(ORDER_STREAM)
-            .join(it.table<String, String>(ADDRESS_TABLE)) { order, address -> "$order send to $address" }
+    val stringBuilder = StreamsBuilder().apply {
+        stream<String, String>(ORDER_STREAM)
+            .join(table<String, String>(ADDRESS_TABLE)) { order, address -> "$order send to $address" }
             .to(ORDER_JOIN_STREAM)
     }
     val streams = KafkaStreams(stringBuilder.build(), getProperties())

@@ -17,8 +17,8 @@ fun main() {
 //    val filterStreamLog = streamLog.filter { _, value -> value.length > 5 } // stream processor
 //    filterStreamLog.to(STREAM_LOG_FILTER) // sink processor
 
-    val streamsBuilder = StreamsBuilder().also {
-        it.stream<String, String>(STREAM_LOG)
+    val streamsBuilder = StreamsBuilder().apply {
+        stream<String, String>(STREAM_LOG)
             .filter { _, value -> value.length > 5 }
             .to(STREAM_LOG_FILTER)
     }
